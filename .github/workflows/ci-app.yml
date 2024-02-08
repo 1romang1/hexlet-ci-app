@@ -1,13 +1,22 @@
 name: ci-app-workflow
+
 on: push
+
 jobs:
   bild:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    strategy:
+      # Node versions list
+      matrix:
+        node-version: [20.x]
+
     steps:
       - uses: action/checkout@v4
-      - uses: action/setup-node@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: action/setup-node@v3
+      with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       - run: make setup
       - run: make test
       - run: make lint
