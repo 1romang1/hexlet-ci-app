@@ -1,5 +1,7 @@
 name: ci-app-workflow
 on: push
+permissions:
+  contents: read
 jobs:
   bild:
     runs-on: ubuntu-latest
