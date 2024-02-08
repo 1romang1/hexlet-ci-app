@@ -2,9 +2,9 @@ name: ci-app-workflow
 on: push
 jobs:
   bild:
-  permissions:
-  contents: read
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: action/checkout@v3
       - uses: action/setup-node@v3
