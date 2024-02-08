@@ -9,7 +9,6 @@ jobs:
       # Node versions list
       matrix:
         node-version: [20.x]
-
     steps:
       - uses: action/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
